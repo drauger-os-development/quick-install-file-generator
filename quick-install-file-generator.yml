@@ -1,11 +1,12 @@
 app: quick-install-file-generator
-	union: true
 
 ingredients:
 	dist: focal
-	sources:
-		- deb http://archive.ubuntu.com/ubuntu focal main
-		- deb http://archive.ubuntu.com/ubuntu focal-updates main
 	packages:
+		- python3
 		- python3-apt
 		- gir1.2-gtk-3.0
+	sources:
+		- deb http://us.archive.ubuntu.com/ubuntu/ focal main
+		- deb http://us.archive.ubuntu.com/ubuntu/ focal-updates main
+	

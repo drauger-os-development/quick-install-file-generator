@@ -12,7 +12,14 @@ mkdir ../"$FOLDER"
 #							     #
 #							     #
 ##############################################################
-# Nothing to build
+cd usr/share/quick-install-file-generator
+FLAGS=$(pkg-config --cflags --libs gtk+-3.0)
+DELETE=""
+for each in $(ls); do
+	g++ -Wall -m64 $FLAGS -o "${each/.cxx/}" "$each" && echo "$each compiled successfully"
+	DELETE="$DELETE ${each/.cxx/}"
+done
+cd ../../..
 ##############################################################
 #							     #
 #							     #
@@ -78,7 +85,10 @@ fi
 cp -R DEBIAN ../"$FOLDER"/DEBIAN
 cd ..
 #delete stuff here
-# nothing to delete
+find "$FOLDER" -path *.cxx -print
+cd quick-install-file-generator/usr/share/quick-install-file-generator
+rm $DELETE
+cd ../../../..
 #build the shit
 dpkg-deb --build "$FOLDER"
 rm -rf "$FOLDER"

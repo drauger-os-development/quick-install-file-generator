@@ -1,60 +1,45 @@
-#!/usr/bin/env python3
+#!/bin/bash
 # -*- coding: utf-8 -*-
 #
 #  quick-install-file-generator
-#
+#  
 #  Copyright 2020 Thomas Castleman <contact@draugeros.org>
-#
+#  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation; either version 2 of the License, or
 #  (at your option) any later version.
-#
+#  
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-#
+#  
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
+#  
 #
-#
-"""Quick Install File Generator - Entry Point"""
-from __future__ import print_function
-from sys import stderr, version_info
-from sys import argv as ARGV
-from subprocess import check_call
+VERSION="0.0.1-alpha0"
+HELP="quick-install-file-generator, Version $VERSION\n\n\t-h, --help\t\tPrint this help dialog and exit\n\t-v, --version\t\tPrint current version and exit\n\nPass nothing to start quick-install-file-generator."
+FLAG="$1"
 
-
-def __eprint__(*args, **kwargs):
-    """Make it easier for us to print to stderr"""
-    print(*args, file=stderr, **kwargs)
-
-
-VERSION = "0.0.1-alpha0"
-HELP = """quick-install-file-generator, Version %s
-\t-h, --help\t\tPrint this help dialog and exit
-\t-v, --version\t\tPrint current version and exit
-Pass nothing to start quick-install-file-generator.""" % (VERSION)
-
-if version_info[0] == 2:
-    __eprint__("Please run with Python 3 as Python 2 is End-of-Life.")
-    exit(2)
-
-# get length of argv
-ARGC = len(ARGV)
-try:
-    if ((ARGV[1] == "-h") or (ARGV[1] == "--help")):
-        print(HELP)
-        exit(0)
-    elif ((ARGV[1] == "-v") or (ARGV[1] == "--version")):
-        print(VERSION)
-        exit(0)
-    else:
-        __eprint__("Option: %s not recognized" % (ARGV[1]))
-        check_call(["./quick-install-file-generator", "-h"])
-        exit(1)
-except IndexError:
-    exit(check_call("../share/quick-install-file-generator/main.py"))
+if [ "$FLAG" == "-h" ] || [ "$FLAG" == "--help" ]; then
+	builtin echo -e "$HELP"
+	exit 0
+elif [ "$FLAG" == "-v" ] || [ "$FLAG" == "--version" ]; then
+	builtin echo -e "$VERSION"
+	exit 0
+elif [ -z "$FLAG" ]; then
+	if [ -f ././share/quick-install-file-generator/main ]; then
+		././share/quick-install-file-generator/main
+	else
+		/usr/share/quick-install-file-generator/main
+	fi
+	exit $?
+else
+	builtin echo -e "Option: $FLAG not recognized"
+	$PWD/quick-install-file-generator -h
+	exit 1
+fi
