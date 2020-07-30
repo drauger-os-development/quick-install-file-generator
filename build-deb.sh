@@ -13,7 +13,7 @@ mkdir ../"$FOLDER"
 #							     #
 ##############################################################
 cd usr/share/quick-install-file-generator
-FLAGS=$(pkg-config --cflags --libs gtk+-3.0)
+FLAGS="$(pkg-config --cflags --libs gtk+-3.0) $(pkg-config --cflags --libs jsoncpp)"
 DELETE=""
 for each in $(ls); do
 	g++ -Wall -m64 $FLAGS -o "${each/.cxx/}" "$each" && echo "$each compiled successfully"
