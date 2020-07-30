@@ -1,0 +1,10 @@
+Package: quick-install-file-generator
+Version: 0.0.1-alpha0
+Maintainer: Thomas Castleman <contact@draugeros.org>
+Section: utils
+Homepage: https://github.com/drauger-os-development/quick-install-file-generator
+Architecture: all
+Priority: optional
+Depends: python3, python3-apt, gir1.2-gtk-3.0
+Description: Generate a Quick Install config file
+ Use your existing system settings, or create unique settings, and dump them to a file to use with Drauger OS's Quick Install feature.

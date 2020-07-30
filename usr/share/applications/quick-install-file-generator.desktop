@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=quick-install-file-generator
+Version=1.0
+Exec=/usr/bin/quick-install-file-generator
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Icon=/usr/share/icons/hicolor/scalable/apps/quick-install-file-generator.svg
+Categories=DesktopSettings;Settings;System;Utility;
