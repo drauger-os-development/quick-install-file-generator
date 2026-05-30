@@ -1,12 +1,10 @@
 app: quick-install-file-generator
 
 ingredients:
-	dist: focal
+	dist: noble
 	packages:
 		- python3
-		- python3-apt
-		- gir1.2-gtk-3.0
 	sources:
 		- deb http://us.archive.ubuntu.com/ubuntu/ focal main
 		- deb http://us.archive.ubuntu.com/ubuntu/ focal-updates main
-	
+
