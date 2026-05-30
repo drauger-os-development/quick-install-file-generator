@@ -60,4 +60,8 @@ cd ..
 dpkg-deb --build "$FOLDER"
 rm -rf "$FOLDER"
 mkdir "$BASE/build"
-mv "$FOLDER.deb" "$BASE/build/$FOLDER.deb"
+if [ "$1" != "" ]; then
+	mv "$FOLDER.deb" "$BASE/build/$1.deb"
+else
+	mv "$FOLDER.deb" "$BASE/build/$FOLDER.deb"
+fi

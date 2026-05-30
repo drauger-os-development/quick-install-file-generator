@@ -1,10 +1,15 @@
 app: quick-install-file-generator
 
 ingredients:
+    script:
+        - ./build-deb.sh qifg
 	dist: noble
 	packages:
 		- python3
+		- ./build/qifg.deb
 	sources:
-		- deb http://us.archive.ubuntu.com/ubuntu/ focal main
-		- deb http://us.archive.ubuntu.com/ubuntu/ focal-updates main
+		- deb http://us.archive.ubuntu.com/ubuntu/ noble main universe multiverse
+		- deb http://us.archive.ubuntu.com/ubuntu/ noble-updates main universe multiverse
+    post_script:
+        - rm ./build/qifg.deb
 
