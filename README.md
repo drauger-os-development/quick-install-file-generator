@@ -4,7 +4,7 @@
 **License:** GPL-2.0
 **Maintainer:** Thomas Castleman \<batcastle@draugeros.org\>
 
-A command-line tool that generates [Quick Install files](https://github.com/drauger-os-development/quick-install-file-generator/blob/main/quick-install-spec.md) by auto-detecting your current system's settings and prompting you for anything it can't determine automatically. The resulting file can be fed to a compatible installer (such as [Edamame](https://github.com/drauger-os-development/edamame)) to reproduce your configuration on a fresh install with minimal interaction — useful for reinstalling your own system quickly, or deploying a fleet of machines consistently.
+A command-line tool that generates [Quick Install files](quick-install-spec.md) by auto-detecting your current system's settings and prompting you for anything it can't determine automatically. The resulting file can be fed to a compatible installer (such as [Edamame](https://github.com/drauger-os-development/edamame)) to reproduce your configuration on a fresh install with minimal interaction — useful for reinstalling your own system quickly, or deploying a fleet of machines consistently.
 
 ---
 
