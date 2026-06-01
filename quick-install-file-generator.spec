@@ -1,7 +1,7 @@
 Name:       quick-install-file-generator
 Version:    0.1.3
 # Pre-release versions use a 0. prefix so they sort below the final release.
-# Strip %{?dist} when reading this field in build scripts.
+# Strip %%{?dist} when reading this field in build scripts.
 Release:    0.alpha1%{?dist}
 Summary:    Generate a Quick Install config file
 License:    GPL-2.0-or-later
@@ -41,7 +41,7 @@ rm -rf %{buildroot}
 ##############################################################
 
 for dir in bin etc usr lib lib32 lib64 libx32 sbin var opt; do
-    [ -d "%{_builddir}/$dir" ] && cp -a "%{_builddir}/$dir" "%{buildroot}/"
+    [ -d "%{_topdir}/BUILD/$dir" ] && cp -a "%{_topdir}/BUILD/$dir" "%{buildroot}/"
 done
 
 # ─── Files ────────────────────────────────────────────────────────────────────
