@@ -1,5 +1,5 @@
 Name:       quick-install-file-generator
-Version:    0.1.2
+Version:    0.1.3
 # Pre-release versions use a 0. prefix so they sort below the final release.
 # Strip %{?dist} when reading this field in build scripts.
 Release:    0.alpha1%{?dist}
